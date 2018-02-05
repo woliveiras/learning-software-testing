@@ -10,6 +10,11 @@
 //   em um mesmo método
 // o it() é quem realmente vai executar os comandos
 describe('Main', () => {
+  // devemos definir as variáveis fora dos hooks
+  //   para que elas sejam acessíveis no restante do
+  //   script de teste
+  var arr;
+
   // hooks para testes:
   //    before > roda uma vez antes do bloco (o it())
   //    after > roda uma vez depois do bloco
@@ -29,6 +34,7 @@ describe('Main', () => {
   });
 
   afterEach(() => {
+    arr = [1, 2, 3];
     console.log('afterEach');
   });
 
@@ -54,5 +60,20 @@ describe('Main', () => {
   });
 
   describe('Method B', () => {
+    context('Case 1 for Method B', () => {
+      it('Should have a size of 4 when push another value into the array', () => {
+        arr.push(4);
+
+        console.log(arr.length);
+      });
+      it('Should have a size of 2 when pop a value from the array', () => {
+        arr.pop();
+
+        console.log(arr.length);
+      });
+      it('Should remove the value 3 when use pop in the array', () => {
+        console.log(arr.pop() === 3);
+      });
+    });
   });
 });
