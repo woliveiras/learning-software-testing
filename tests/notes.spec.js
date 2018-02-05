@@ -10,15 +10,39 @@
 //   em um mesmo método
 // o it() é quem realmente vai executar os comandos
 describe('Main', () => {
+  // hooks para testes:
+  //    before > roda uma vez antes do bloco (o it())
+  //    after > roda uma vez depois do bloco
+  //    beforeEach > roda todas as vezes antes de cada bloco
+  //    afterEach > roda todas as vezes depois de cada bloco
+
+  before(() => {
+    console.log('before');
+  });
+
+  after(() => {
+    console.log('after');
+  });
+
+  beforeEach(() => {
+    console.log('beforeEach');
+  });
+
+  afterEach(() => {
+    console.log('afterEach');
+  });
+
   describe('Method A', () => {
     context('Case 1', () => {
-      it('Should happen blablabla', () => {
+      it('Should happen foo', () => {
         // esperamos que aconteça algo aqui
       });
     });
 
     context('Case 2', () => {
-
+      it('Should happen bar', () => {
+        // esperamos que aconteça algo aqui
+      });
     });
 
     context('Case 3', () => {
@@ -30,6 +54,5 @@ describe('Main', () => {
   });
 
   describe('Method B', () => {
-
   });
 });
