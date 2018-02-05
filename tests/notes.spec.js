@@ -20,6 +20,13 @@ describe('Main', () => {
     context('Case 2', () => {
 
     });
+
+    context('Case 3', () => {
+      it.skip('Skiped Test', () => {
+        // podemos usar o skip para pular um teste
+      });
+    });
+
   });
 
   describe('Method B', () => {
