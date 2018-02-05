@@ -22,10 +22,12 @@ describe('Main', () => {
   //    afterEach > roda todas as vezes depois de cada bloco
 
   before(() => {
+    // podemos iniciar uma conexão com um bancos de dados aqui
     console.log('before');
   });
 
   after(() => {
+    // e fechar a conexão com o banco de dados aqui
     console.log('after');
   });
 
