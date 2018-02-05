@@ -20,6 +20,7 @@ describe('Main', () => {
   //    after > roda uma vez depois do bloco
   //    beforeEach > roda todas as vezes antes de cada bloco
   //    afterEach > roda todas as vezes depois de cada bloco
+  // os hooks ajudam para que não criemos dependência entre testes
 
   before(() => {
     // podemos iniciar uma conexão com um bancos de dados aqui
