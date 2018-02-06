@@ -71,7 +71,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **William Oliveira** - *Initial work* - [woliveiras](https://github.com/woliveiras)
+* **William Oliveira** - [woliveiras](https://github.com/woliveiras)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
