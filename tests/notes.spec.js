@@ -1,3 +1,6 @@
+// o chai é nossa suite asserções
+const expect = require('chai').expect;
+
 // describe() serve para testarmos os nossos métodos,
 //   modulos, classes
 // podemos ter vários describes dentro de um mesmo
@@ -13,7 +16,8 @@ describe('Main', () => {
   // devemos definir as variáveis fora dos hooks
   //   para que elas sejam acessíveis no restante do
   //   script de teste
-  var arr;
+  let arr;
+  let counter = 1;
 
   // hooks para testes:
   //    before > roda uma vez antes do bloco (o it())
@@ -24,21 +28,21 @@ describe('Main', () => {
 
   before(() => {
     // podemos iniciar uma conexão com um bancos de dados aqui
-    console.log('before');
+    console.log(`before ${ counter }`);
   });
 
   after(() => {
     // e fechar a conexão com o banco de dados aqui
-    console.log('after');
+    console.log(`after ${ counter }`);
   });
 
   beforeEach(() => {
-    console.log('beforeEach');
+    console.log(`beforeEach ${ counter++ }`);
   });
 
   afterEach(() => {
     arr = [1, 2, 3];
-    console.log('afterEach');
+    console.log(`afterEach ${ counter++ }`);
   });
 
   describe('Method A', () => {
@@ -64,18 +68,25 @@ describe('Main', () => {
 
   describe('Method B', () => {
     context('Case 1 for Method B', () => {
+      // smoke test, teste para validar o tipo de dados
+      //   em um identificador
+      it('Should be an array', () => {
+        expect(arr).to.be.a('array');
+      });
+
       it('Should have a size of 4 when push another value into the array', () => {
         arr.push(4);
-
-        console.log(arr.length);
+        expect(arr).to.have.lengthOf(4);
       });
+
       it('Should have a size of 2 when pop a value from the array', () => {
         arr.pop();
-
-        console.log(arr.length);
+        expect(arr).to.have.lengthOf(2);
       });
+
       it('Should remove the value 3 when use pop in the array', () => {
-        console.log(arr.pop() === 3);
+        arr.pop();
+        expect(arr).to.not.include(3);
       });
     });
   });
