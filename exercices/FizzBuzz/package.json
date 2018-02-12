@@ -7,8 +7,7 @@
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:watch": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test",
-    "lint": "./node_modules/.bin/eslint src/*.js",
-    "prepush": "npm run lint && npm run test:coverage"
+    "lint": "./node_modules/.bin/eslint src/*.js"
   },
   "nyc": {
     "functions": 80,
@@ -16,6 +15,11 @@
     "check-coverage": true,
     "reporter": ["text", "html"],
     "exclude": ["tests/**"]
+  },
+  "husky": {
+    "hooks": {
+      "prepush": "npm run lint && npm run test:coverage"
+    }
   },
   "author": "",
   "license": "MIT",
