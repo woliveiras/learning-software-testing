@@ -10,12 +10,15 @@
     "lint": "./node_modules/.bin/eslint src/*.js"
   },
   "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
     "reporter": ["text", "html"],
     "exclude": ["tests/**"]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run lint && npm run test:coverage"
     }
   },
   "author": "",
